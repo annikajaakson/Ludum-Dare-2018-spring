@@ -220,16 +220,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 792936080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a6d6c16c7a49304f98891938dbb048c, type: 3}
+  m_Script: {fileID: 11500000, guid: 44a70f8257e569840b07169e6d4d0e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   valikud: 
-  q1: {fileID: 21300000, guid: bcdfe7578356b644ba62f2c04c86a744, type: 3}
-  q2: {fileID: 21300000, guid: 7a807b836f3cf5549b6475e6f765d9b5, type: 3}
-  q3: {fileID: 21300000, guid: 765708e74fb447a41b910265e072e95a, type: 3}
-  q4: {fileID: 21300000, guid: e479d7f83e269fd478530a074fb2cb38, type: 3}
-  q5: {fileID: 21300000, guid: 1d9cb60ca0a9df34da9c4af0a13be353, type: 3}
-  q6: {fileID: 21300000, guid: a6aaba93f5c73d148965cf8ed0473b28, type: 3}
+  q1: {fileID: 21300000, guid: 3a5f4e93fdc7ba14385f107e21e3263b, type: 3}
+  q2: {fileID: 21300000, guid: ffd32da7030245b439f10c7b679b9f79, type: 3}
+  q3: {fileID: 21300000, guid: acb864537ca85cd42b7c476cd7af34fc, type: 3}
+  q4: {fileID: 21300000, guid: 44c4bea649883d14da7f6b6d22558561, type: 3}
+  q5: {fileID: 21300000, guid: 27d6b92e5f2036c4d86c404040da04d2, type: 3}
+  q6: {fileID: 21300000, guid: df844633efa9da642964bea636fa6b17, type: 3}
   sprites: []
   sprite_index: 1
 --- !u!212 &792936082
