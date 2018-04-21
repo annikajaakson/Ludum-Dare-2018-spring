@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class clickplay : MonoBehaviour {
 
@@ -13,4 +14,9 @@ public class clickplay : MonoBehaviour {
 	void Update () {
 		
 	}
+    void OnMouseDown()
+    {
+        SceneManager.LoadScene("quiz_scene");
+    }
 }
+

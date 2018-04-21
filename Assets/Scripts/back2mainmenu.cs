@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class clicksponsores : MonoBehaviour {
+public class back2mainmenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +17,6 @@ public class clicksponsores : MonoBehaviour {
 
      void OnMouseDown()
     {
-        SceneManager.LoadScene("sponsores");
-    } 
+        SceneManager.LoadScene("title");
+    }
 }
