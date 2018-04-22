@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class quiz : MonoBehaviour {
+public class quiz : MonoBehaviour
+{
     public List<int> valikud = new List<int>();
     public List<string> traits = new List<string>();
     private SpriteRenderer spriteR;
@@ -18,31 +19,40 @@ public class quiz : MonoBehaviour {
     public Sprite q6;
     public Sprite[] sprites;
     public int sprite_index = 1;
-
-	// Use this for initialization
-	void Start () {
+    public GameObject results;
+    public GameObject present;
+    public GameObject background;
+    public GameObject namer;
+    // Use this for initialization
+    void Start()
+    {
         Debug.Log("Start!");
         spriteR = this.GetComponent<SpriteRenderer>();
-        sprites = new Sprite[] {this.q1, this.q2, this.q3, this.q4, this.q5, this.q6};
-        spriteR.sprite = sprites[sprite_index-1];
+        sprites = new Sprite[] { this.q1, this.q2, this.q3, this.q4, this.q5, this.q6 };
+        spriteR.sprite = sprites[sprite_index - 1];
+        DontDestroyOnLoad(gameObject);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
-    void OnMouseDown() {
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    void OnMouseDown()
+    {
         bool answered = false;
 
         if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < 4.99
-        && Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -4.99) {
+        && Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -4.99)
+        {
             if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 1.48f
-            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > 0.487f) {
-                if (spriteR.sprite == q1) {
-                traits.Add("furry");
-                answered = true;
-                 }
+            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > 0.487f)
+            {
+                if (spriteR.sprite == q1)
+                {
+                    traits.Add("furry");
+                    answered = true;
+                }
                 else if (spriteR.sprite == q2)
                 {
                     traits.Add("shy");
@@ -68,13 +78,15 @@ public class quiz : MonoBehaviour {
                     traits.Add("murderer");
                     answered = true;
                 }
+                Debug.Log(answered);
             }
 
             else if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 0.487f
-            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -0.52f) {
-               /* Debug.Log("Answer 2");
-                valikud.Add(2);
-                answered = true;*/
+            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -0.52f)
+            {
+                /* Debug.Log("Answer 2");
+                 valikud.Add(2);
+                 answered = true;*/
                 if (spriteR.sprite == q1)
                 {
                     traits.Add("basic");
@@ -108,10 +120,11 @@ public class quiz : MonoBehaviour {
             }
 
             else if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < -0.52f
-            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -1.48f) {
-               /* Debug.Log("Answer 3");
-                valikud.Add(3);
-                answered = true;*/
+            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -1.48f)
+            {
+                /* Debug.Log("Answer 3");
+                 valikud.Add(3);
+                 answered = true;*/
                 if (spriteR.sprite == q1)
                 {
                     traits.Add("edgy fat");
@@ -145,7 +158,8 @@ public class quiz : MonoBehaviour {
             }
 
             else if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < -1.48f
-            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -2.48f) {
+            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -2.48f)
+            {
                 /*Debug.Log("Answer 4");
                 valikud.Add(4);
                 answered = true;*/
@@ -182,8 +196,9 @@ public class quiz : MonoBehaviour {
             }
 
             else if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < -2.48f
-            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -3.5f) {
-               // Debug.Log("Answer 5");
+            && Camera.main.ScreenToWorldPoint(Input.mousePosition).y > -3.5f)
+            {
+                // Debug.Log("Answer 5");
                 valikud.Add(5);
                 //answered = true;
                 if (spriteR.sprite == q1)
@@ -218,17 +233,32 @@ public class quiz : MonoBehaviour {
                 }
             }
 
-            if (answered) {
-                if (sprite_index < 6) {
-                    Debug.Log(traits[sprite_index-1]);
+            if (answered)
+            {
+                if (sprite_index < 6)
+                {
+                    Debug.Log(traits[sprite_index - 1]);
                     sprite_index++;
-                } else {
+                }
+                else
+                {
                     spriteR.enabled = false;
-                    SceneManager.LoadScene("lift_scene");
+                    results.gameObject.SetActive(true);
+                    Invoke("getresults", 5f);
+                    //SceneManager.LoadScene("lift_scene");
                 }
             }
 
-            spriteR.sprite = sprites[sprite_index - 2];
+            //Debug.Log(spriteR.sprite);
+            //Debug.Log(sprite_index);
+            spriteR.sprite = sprites[sprite_index - 1];
         }
+    }
+    void getresults()
+    {
+        background.gameObject.SetActive(true);
+        present.gameObject.SetActive(true);
+        present.gameObject.SendMessage("describe", 5f);
+        namer.gameObject.SetActive(true);
     }
 }
