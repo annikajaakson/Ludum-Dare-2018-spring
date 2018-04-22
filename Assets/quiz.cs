@@ -18,13 +18,17 @@ public class quiz : MonoBehaviour {
     public Sprite q6;
     public Sprite[] sprites;
     public int sprite_index = 1;
-
+    public GameObject results;
+    public GameObject present;
+    public GameObject background;
+    public GameObject namer;
 	// Use this for initialization
 	void Start () {
         Debug.Log("Start!");
         spriteR = this.GetComponent<SpriteRenderer>();
         sprites = new Sprite[] {this.q1, this.q2, this.q3, this.q4, this.q5, this.q6};
         spriteR.sprite = sprites[sprite_index-1];
+        DontDestroyOnLoad(gameObject);
     }
 	
 	// Update is called once per frame
@@ -224,13 +228,22 @@ public class quiz : MonoBehaviour {
                     sprite_index++;
                 } else {
                     spriteR.enabled = false;
-                    SceneManager.LoadScene("lift_scene");
+                    results.gameObject.SetActive(true);
+                    Invoke("getresults", 5f);
+                    //SceneManager.LoadScene("lift_scene");
                 }
             }
 
-            Debug.Log(spriteR.sprite);
-            Debug.Log(sprite_index);
+            //Debug.Log(spriteR.sprite);
+            //Debug.Log(sprite_index);
             spriteR.sprite = sprites[sprite_index - 2];
         }
+    }
+    void getresults()
+    {
+        background.gameObject.SetActive(true);
+        present.gameObject.SetActive(true);
+        present.gameObject.SendMessage("describe", 5f);
+        namer.gameObject.SetActive(true);
     }
 }
