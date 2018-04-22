@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class quiz : MonoBehaviour {
@@ -223,6 +224,7 @@ public class quiz : MonoBehaviour {
                     sprite_index++;
                 } else {
                     spriteR.enabled = false;
+                    SceneManager.LoadScene("lift_scene");
                 }
             }
 
