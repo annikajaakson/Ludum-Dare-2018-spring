@@ -34,7 +34,7 @@ public class swiper : MonoBehaviour
         {
             door_right.transform.Translate(Vector3.left * speed);
             door_left.transform.Translate(Vector3.right * speed);
-            if (door_right.transform.position.x <= 1.05f)
+            if (door_right.transform.position.x <= 0.0f)
             {
                 open = false;
             }
