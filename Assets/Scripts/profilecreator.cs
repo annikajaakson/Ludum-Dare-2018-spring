@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class profilecreator : MonoBehaviour {
     public Sprite pic1;
@@ -89,5 +90,9 @@ public class profilecreator : MonoBehaviour {
        // description.text = "*" + question.gameObject.GetComponent<quiz>().traits[0]
         description.text = best.Replace("<br>", "\n");
         nname.gameObject.SetActive(true);
+    }
+     void OnMouseDown()
+    {
+        SceneManager.LoadScene("lift_scene");
     }
 }
