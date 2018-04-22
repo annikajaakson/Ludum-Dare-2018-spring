@@ -33,7 +33,6 @@ public class quiz : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
 	}
 
     void OnMouseDown() {
@@ -72,6 +71,7 @@ public class quiz : MonoBehaviour {
                     traits.Add("murderer");
                     answered = true;
                 }
+                Debug.Log(answered);
             }
 
             else if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 0.487f
@@ -236,7 +236,7 @@ public class quiz : MonoBehaviour {
 
             //Debug.Log(spriteR.sprite);
             //Debug.Log(sprite_index);
-            spriteR.sprite = sprites[sprite_index - 2];
+            spriteR.sprite = sprites[sprite_index - 1];
         }
     }
     void getresults()
