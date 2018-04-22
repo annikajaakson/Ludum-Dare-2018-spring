@@ -228,8 +228,6 @@ public class quiz : MonoBehaviour {
                 }
             }
 
-            Debug.Log(spriteR.sprite);
-            Debug.Log(sprite_index);
             spriteR.sprite = sprites[sprite_index - 2];
         }
     }
