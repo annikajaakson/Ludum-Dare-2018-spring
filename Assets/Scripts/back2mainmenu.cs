@@ -17,6 +17,6 @@ public class back2mainmenu : MonoBehaviour {
 
      void OnMouseDown()
     {
-        SceneManager.LoadScene("title");
+        SceneManager.LoadScene("title 1");
     }
 }
